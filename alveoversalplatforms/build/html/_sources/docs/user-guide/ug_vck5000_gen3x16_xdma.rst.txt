@@ -11,7 +11,7 @@ VCK5000 Gen3x16 XDMA Vitis Platform
 #######################################
 
 
-The 2021.2 VCK5000 platform has been deprecated for support. Please upgrade to the :ref:`2022.1 platform <vck5000_gen4x8_xdma_base_2>`.
+The 2021.2 VCK5000 platform has been deprecated for support. Please upgrade to the :ref:`2022.1 VCK5000 Gen4x8 XDMA Vitis Platform <vck5000_gen4x8_xdma_base_2>`.
 
 
 ----------------------------------

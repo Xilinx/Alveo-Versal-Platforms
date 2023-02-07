@@ -65,7 +65,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li class="toctree-l1"><a class="reference internal" href="install_development.html">Installation Guide for Platform Development Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_deployment.html">Installation Guide for Platform Deployment Packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">VCK5000 Migration Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#migration-steps">Migration Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-steps">Migration Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stage-1-ospi-migration-and-vck5000-gen4x8-xdma-base-2-shell-update">Stage 1:  OSPI migration and vck5000_gen4x8_xdma_base_2 shell update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stage-2-vck5000-gen4x8-qdma-base-2-shell-update">Stage 2:  vck5000_gen4x8_qdma_base_2 shell update</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -76,9 +80,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Platform User Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_list.html">Alveo Versal Userguides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_list.html">Alveo Versal User Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen3x16_xdma.html">VCK5000 Gen3x16 XDMA Vitis Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen4x8_xdma.html">VCK5000 Gen4x8 XDMA Vitis Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/ug_vck5000_gen4x8_qdma.html">VCK5000 Gen4x8 QDMA Vitis Platform</a></li>
 </ul>
 
         </div>
@@ -107,52 +112,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              
   <div class="section" id="vck5000-migration-guide">
 <span id="id1"></span><h1>VCK5000 Migration Guide<a class="headerlink" href="#vck5000-migration-guide" title="Permalink to this heading">¶</a></h1>
-<p>When first installing any vck5000 shell from <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> forwards (see <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-packages-table"><span class="std std-ref">Table: Alveo Versal Deployment Packages</span></a>), it is necessary to execute this migration process rather than the standard platform installation. This operation is required to modify the formatting of the on-card OSPI flash for the later platforms.</p>
+<p>VCK5000 shells from <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> forwards (see <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-packages-table"><span class="std std-ref">Table: Alveo Versal Deployment Packages</span></a>), use an updated formatting of the on-card OSPI configuration storage flash memory.   The older configuration flash storage format is not compatible with the <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> and <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> shells so it is necessary to execute a migration process to update the formatting of the OSPI flash storage to make it suitable for use with these newer platforms.</p>
 <p>It may be necessary to setup the XRT environment to use the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span></code> utility below. See <a class="reference internal" href="install_deployment.html#xrt-environment-setup"><span class="std std-ref">XRT environment setup:</span></a>.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Migration only needs to be run once on a card. It is a one-way process. Once migrated it is not possible to revert the card to run pre-2022.1 platforms.</p>
-</div>
-<p>The process needs to be executed for the following two scenarios:</p>
+<p>The processes described on this page should be executed for the following scenarios:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>A brand new VCK5000 card</p></li>
-<li><p>A VCK5000 card running an earlier platform such as <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code></p></li>
+<li><p>A brand new VCK5000 card or a VCK5000 card running an earlier platform such as <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code> must follow the Stage 1 instructions below.</p></li>
+<li><p>A VCK5000 card running <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> upgrading to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> must follow the Stage 2 instructions below.</p></li>
 </ul>
 </div></blockquote>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Migration and upgrade of the VCK5000 requires correct matching of the platform shell and satellite controller firmware versions programmed onto the card at each stage of the upgrade.  To ensure that the shell and firmware images are correctly matched during the migration and upgrade, the following sequence of upgrades should be followed:</p>
+<ul class="simple">
+<li><p>If the VCK5000 card is currently programmed with <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_base_1</span></code>, complete the migration and upgrade process to configure the card with the <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code>.</p></li>
+<li><p>When the card is migrated and upgraded to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> shell,  it can then be upgraded to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> shell.</p></li>
+<li><p>Direct migration and upgrade from <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code> to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> is not supported.</p></li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Migration is a one-way process.</p>
+<p>Once the VCK5000 card is migrated with Stage 1 instructions below, it is not possible to revert the card to run pre-2022.1 platforms.</p>
+</div>
 <p>To determine whether migration is required run the following command. Note: It is assumed that Step 1 from <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-package-installation-step-1"><span class="std std-ref">Alveo Versal Deployment Package Installation</span></a> has already been completed.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>platform<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xbmgmt examine --report platform --device &lt;Management BDF&gt;
 </pre></div>
 </div>
 <p>To find &lt;Management BDF&gt; see <a class="reference internal" href="install_deployment.html#obtaining-card-bdf-values"><span class="std std-ref">Obtaining Card BDF Values</span></a>.</p>
 <p>If the output from the command above contains the following then migration is needed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>------------------------------------
-<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000
+<span class="m">1</span>/1 <span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span> : xilinx_vck5000
 ------------------------------------
-Warning:<span class="w"> </span>Device<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>ready<span class="w"> </span>-<span class="w"> </span>Limited<span class="w"> </span>functionality<span class="w"> </span>available<span class="w"> </span>with<span class="w"> </span>XRT<span class="w"> </span>tools.
+Warning: Device is not ready - Limited functionality available with XRT tools.
 
-Flash<span class="w"> </span>properties
-<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>ospi_versal
-<span class="w">  </span>Serial<span class="w"> </span>Number<span class="w">        </span>:<span class="w"> </span>N/A
+Flash properties
+  Type                 : ospi_versal
+  Serial Number        : N/A
 
-Device<span class="w"> </span>properties
-<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>vck5000
-<span class="w">  </span>Name<span class="w">                 </span>:<span class="w"> </span>N/A
-<span class="w">  </span>Config<span class="w"> </span>Mode<span class="w">          </span>:<span class="w"> </span><span class="m">0</span>
-<span class="w">  </span>Max<span class="w"> </span>Power<span class="w">            </span>:<span class="w"> </span>N/A
+Device properties
+  Type                 : vck5000
+  Name                 : N/A
+  Config Mode          : <span class="m">0</span>
+  Max Power            : N/A
 
-Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>FPGA
-<span class="w">  </span>Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000
-<span class="w">  </span>SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span>INACTIVE
-<span class="w">  </span>Platform<span class="w"> </span>ID<span class="w">          </span>:<span class="w"> </span>0x0
+Flashable partitions running on FPGA
+  Platform             : xilinx_vck5000
+  SC Version           : INACTIVE
+  Platform ID          : 0x0
 </pre></div>
 </div>
-<p>In particular if the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> is <code class="docutils literal notranslate"><span class="pre">ospi_versal</span></code> then migration is required.</p>
+<p>In particular if the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> is <code class="docutils literal notranslate"><span class="pre">ospi_versal</span></code> then migration is required.   Following a successful migration with the steps below, the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> value will be reported as <code class="docutils literal notranslate"><span class="pre">ospi_xgq</span></code>.</p>
 <hr class="docutils" />
 <div class="section" id="migration-steps">
 <h2>Migration Steps<a class="headerlink" href="#migration-steps" title="Permalink to this heading">¶</a></h2>
-<p>Run the following command to migrate the card</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>/opt/xilinx/firmware/vck5000/gen4x8-xdma/base/migration/migrate.sh<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+<div class="section" id="stage-1-ospi-migration-and-vck5000-gen4x8-xdma-base-2-shell-update">
+<h3>Stage 1:  OSPI migration and vck5000_gen4x8_xdma_base_2 shell update<a class="headerlink" href="#stage-1-ospi-migration-and-vck5000-gen4x8-xdma-base-2-shell-update" title="Permalink to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> platform is aligned with the Vivado and Vitis 2022.1 software.   Ensure that 2022.1 XRT package (XRT version 2.13.466) is installed on the host and used in this stage to satisfy compatibility requirements with the 2022.1 platform packages.</p>
+</div>
+<p>Run the following command to migrate the card from <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code> to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo /opt/xilinx/firmware/vck5000/gen4x8-xdma/base/migration/migrate.sh &lt;Management BDF&gt;
 </pre></div>
 </div>
 <p>When complete, cold reboot the host machine as requested.</p>
@@ -161,17 +182,52 @@ Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span 
 <p>Ensure the host machine is <strong>cold</strong> rebooted to ensure the new platform configuration is loaded.</p>
 </div>
 <p>After cold reboot completes, the Satellite Controller on the card also needs to be updated. Issue the following commands</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
-$<span class="w"> </span>timeout<span class="w"> </span><span class="m">40</span><span class="w"> </span>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s1">&#39;xbmgmt examine --report vmr --device &lt;Management BDF&gt; --verbose | grep -i &quot;program progress&quot;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base --device &lt;Management BDF&gt;
+$ timeout <span class="m">40</span> watch -n <span class="m">1</span> <span class="s1">&#39;xbmgmt examine --report vmr --device &lt;Management BDF&gt; --verbose | grep -i &quot;program progress&quot;&#39;</span>
 </pre></div>
 </div>
 <p>The last command outputs information similar to below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Every<span class="w"> </span><span class="m">1</span>.0s:<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>vmr<span class="w"> </span>--device<span class="w"> </span>d8:00.0<span class="w"> </span>--verbose<span class="w"> </span><span class="p">|</span>...<span class="w">  </span>Tue<span class="w"> </span>May<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>:30:36<span class="w"> </span><span class="m">2022</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Every <span class="m">1</span>.0s: xbmgmt examine --report vmr --device d8:00.0 --verbose <span class="p">|</span>...  Tue May  <span class="m">3</span> <span class="m">10</span>:30:36 <span class="m">2022</span>
 
-<span class="w">  </span>Program<span class="w"> </span>progress<span class="w">     </span>:<span class="w"> </span><span class="m">100</span>
+  Program progress     : <span class="m">100</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">progress</span></code> will increment from 0 to 100 to indicate SC upgrade progress. When this completes issue a cold reboot to complete the upgrade.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">progress</span></code> will increment from 0 to 100 to indicate SC upgrade progress.</p>
+<p>When the command above completes issue a <strong>cold</strong> reboot of the host system to complete the upgrade.</p>
+<p>When the host machine completes the cold reboot, run the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span> <span class="pre">examine</span></code> command to confirm that the Satellite Controller firmware version is now reported to be at version 4.4.33 before continuing to the next stage.</p>
+<p>To confirm that the VCK5000 card has been successfully migrated issue the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt examine -r vmr --verbose --device &lt;PCIe BDF of your VCK5000 card&gt;
+</pre></div>
+</div>
+<p>The presence of <code class="docutils literal notranslate"><span class="pre">Has</span> <span class="pre">fpt:</span> <span class="pre">1</span></code> in the output of this command indicates that the card’s OSPI configuration storage is successfully migrated.</p>
+</div>
+<div class="section" id="stage-2-vck5000-gen4x8-qdma-base-2-shell-update">
+<h3>Stage 2:  vck5000_gen4x8_qdma_base_2 shell update<a class="headerlink" href="#stage-2-vck5000-gen4x8-qdma-base-2-shell-update" title="Permalink to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> platform is aligned with the Vivado and Vitis 2022.2 software.   Ensure that 2022.2 XRT package (XRT version 2.14.354) is installed on the host and used in this stage to satisfy compatibility requirements with the 2022.2 platform packages.</p>
+</div>
+<p>To upgrade the card from <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> complete the following steps.</p>
+<p>First, run the following command to program the platform shell on the card:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base shell --device &lt;Management BDF&gt;  --image &lt;path to qdma install image <span class="o">(</span>typically located <span class="k">in</span> /lib/firmware/xilinx/...<span class="o">)</span>&gt;
+</pre></div>
+</div>
+<p>When complete, cold reboot the host machine as requested.</p>
+<p>After cold reboot completes, the Satellite Controller on the card also needs to be updated to version 4.4.35 or later.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>For the XDMA to QDMA platform upgrade, the transfer of the new Satellite Controller firmware is completed with two commands instead of one.</p>
+</div>
+<p>First, run the following command to set the Satellite Controller hardware into a state where it is ready to receive a new firmware:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base sc --device &lt;Management BDF&gt;  --image &lt;path to qdma install image&gt;
+</pre></div>
+</div>
+<p>Next, re-run the same command to transfer the new firmware image to the Satellite Controller’s program storage.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base sc --device &lt;Management BDF&gt;  --image &lt;path to qdma install image&gt;
+</pre></div>
+</div>
+<p>When complete, cold reboot the host machine.</p>
+<p>After cold reboot completes issue the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span> <span class="pre">examine</span></code> command to the card and review the output to confirm that the satellite controller version is now reported as 4.4.35 (or later).</p>
 <p>Return to <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-package-installation-step-3"><span class="std std-ref">Step3 Validating Platform Installation</span></a> to validate the installation.</p>
 <hr class="docutils" />
 <p class="rubric">Xilinx Support</p>
@@ -183,6 +239,7 @@ $<span class="w"> </span>timeout<span class="w"> </span><span class="m">40</span
 <p>You may obtain a copy of the CC-BY-4.0 License at
 <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
 <p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
 </div>
 </div>
 
@@ -208,7 +265,7 @@ $<span class="w"> </span>timeout<span class="w"> </span><span class="m">40</span
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022-2023, Advanced Micro Devices, Inc.
-      <span class="lastupdated">Last updated on January 24, 2023.
+      <span class="lastupdated">Last updated on January 17, 2023.
       </span></p>
   </div>
 

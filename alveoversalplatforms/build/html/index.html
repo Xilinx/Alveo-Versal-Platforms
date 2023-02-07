@@ -72,9 +72,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Platform User Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="docs/user-guide/ug_list.html">Alveo Versal Userguides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/user-guide/ug_list.html">Alveo Versal User Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docs/user-guide/ug_vck5000_gen3x16_xdma.html">VCK5000 Gen3x16 XDMA Vitis Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docs/user-guide/ug_vck5000_gen4x8_xdma.html">VCK5000 Gen4x8 XDMA Vitis Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/user-guide/ug_vck5000_gen4x8_qdma.html">VCK5000 Gen4x8 QDMA Vitis Platform</a></li>
 </ul>
 
         </div>
@@ -112,7 +113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <img alt="_images/main_system_overview.png" src="_images/main_system_overview.png" />
 <p class="caption"><span class="caption-text"><strong>Figure: Vitis Versal Platform System Overview</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>For more information on the Alveo Versal Vitis Platform architecture, see <a class="reference internal" href="docs/architecture/arch_overview.html#arch-overview"><span class="std std-ref">Platform Architecture</span></a>.</p>
+<p>For more information on the Alveo Versal Vitis Platform architecture see <a class="reference internal" href="docs/architecture/arch_overview.html#arch-overview"><span class="std std-ref">Platform Architecture</span></a>.</p>
 <hr class="docutils" />
 <div class="section" id="available-platforms">
 <h2>Available Platforms<a class="headerlink" href="#available-platforms" title="Permalink to this heading">¶</a></h2>
@@ -121,21 +122,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text"><strong>Table: Available Alveo Versal Platforms</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 43%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
 <col style="width: 9%" />
-<col style="width: 9%" />
+<col style="width: 39%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Card</p></th>
 <th class="head" rowspan="2"><p>Platform Name</p></th>
 <th class="head" colspan="5"><p>Features</p></th>
-<th class="head" colspan="2"><p>Tool Support</p></th>
+<th class="head" colspan="3"><p>Tool Support</p></th>
 </tr>
 <tr class="row-even"><th class="head"><p>P2P</p></th>
 <th class="head"><p>HM</p></th>
@@ -144,10 +146,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <th class="head"><p>GT</p></th>
 <th class="head"><p>2021.2</p></th>
 <th class="head"><p>2022.1</p></th>
+<th class="head"><p>2022.2</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-odd"><td rowspan="2"><p>VCK5000</p></td>
+<tr class="row-odd"><td rowspan="3"><p>VCK5000</p></td>
 <td><p><a class="reference internal" href="docs/user-guide/ug_vck5000_gen3x16_xdma.html#vck5000-gen3x16-xdma-base-1"><span class="std std-ref">VCK5000 Gen3x16 XDMA Vitis Platform</span></a></p></td>
 <td></td>
 <td></td>
@@ -156,6 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td><p>Yes</p></td>
 <td><p>Yes</p></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="docs/user-guide/ug_vck5000_gen4x8_xdma.html#vck5000-gen4x8-xdma-base-2"><span class="std std-ref">VCK5000 Gen4x8 XDMA Vitis Platform</span></a></p></td>
 <td></td>
@@ -163,6 +167,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td><p>1RP</p></td>
 <td><p>Yes</p></td>
 <td><p>Yes</p></td>
+<td></td>
+<td><p>Yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="docs/user-guide/ug_vck5000_gen4x8_qdma.html#vck5000-gen4x8-qdma-base-2"><span class="std std-ref">VCK5000 Gen4x8 QDMA Vitis Platform</span></a></p></td>
+<td></td>
+<td></td>
+<td><p>1RP</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td></td>
 <td></td>
 <td><p>Yes</p></td>
 </tr>
@@ -174,7 +189,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The 2021.2 VCK5000 Gen3x16 platform is being deprecated. For 2022.1 onwards, please migrate to the Gen4x8 platform, please see the <a class="reference internal" href="docs/getting-started/vck5000_migration.html#vck5000-migration-guide"><span class="std std-ref">migration guide</span></a> for further details.</p>
+<p>The 2021.2 VCK5000 Gen3x16 platform is being deprecated. For 2022.1 onwards, please migrate to the Gen4x8 platforms.</p>
+<p>Upgrading the VCK5000 card to the Gen4x8 platforms requires additional steps:</p>
+<ul class="simple">
+<li><p>To install the Gen4x8 XDMA platform on the VCK5000 card please follow the <a class="reference internal" href="docs/getting-started/vck5000_migration.html#vck5000-migration-guide"><span class="std std-ref">VCK5000 migration guide’s Stage 1 OSPI migration steps</span></a> for important upgrade details.</p></li>
+<li><p>To upgrade the VCK5000 card from Gen4x8 XDMA to Gen4x8 QDMA platform please follow the <a class="reference internal" href="docs/getting-started/vck5000_migration.html#vck5000-migration-guide"><span class="std std-ref">VCK5000 migration guide’s Stage 2 QDMA base 2 shell update steps</span></a> for important upgrade details.</p></li>
+</ul>
 </div>
 <hr class="docutils" />
 <p class="rubric">Xilinx Support</p>
@@ -216,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022-2023, Advanced Micro Devices, Inc.
-      <span class="lastupdated">Last updated on January 24, 2023.
+      <span class="lastupdated">Last updated on January 17, 2023.
       </span></p>
   </div>
 

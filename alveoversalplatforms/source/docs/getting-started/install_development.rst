@@ -25,6 +25,7 @@ After installing Vitis and XRT, install the desired Development Package as liste
 
     "vck5000_gen3x16_xdma_base_1", "`VCK5000 Gen3x16 Installation Packages`_", "see link left"
     "vck5000_gen4x8_xdma_base_2", "`VCK5000 Gen4x8 XDMA Installation Packages`_", "see link left"
+    "vck5000_gen4x8_qdma_base_2", "`VCK5000 Gen4x8 QDMA Installation Packages`_", "see link left"
 
 
 .. note::

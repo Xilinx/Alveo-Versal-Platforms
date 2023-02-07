@@ -3,12 +3,12 @@
 
 .. # S1 * S2 = S3 - S4
 
-.. _VCK5000 Gen4x8 XDMA Vitis Platform:
-.. _vck5000_gen4x8_xdma_base_2:
+.. _VCK5000 Gen4x8 QDMA Vitis Platform:
+.. _vck5000_gen4x8_qdma_base_2:
 
 
 ##########################################################################
-VCK5000 Gen4x8 XDMA Vitis Platform
+VCK5000 Gen4x8 QDMA Vitis Platform
 ##########################################################################
 
 .. # start of documentation
@@ -26,16 +26,16 @@ Featuring the Xilinx® Versal ACAP XCVC1902 device, the VCK5000 is equipped with
 - Vector processing for machine learning, video and image processing.
 - Signal processing of complex math, convolutions.
 
-The division of Static and DFX regions for the Gen4x8 XDMA platform is shown below.
+The division of Static and DFX regions for the Gen4x8 QDMA platform is shown below.
 
 
 .. _Figure Platform Static and DFX Region:
 
-.. figure:: /media/vck5000_4x8_xdma_top.png
+.. figure:: /media/vck5000_4x8_qdma_top.png
    :scale: 100 %
    :align: center
 
-   **Figure: XDMA Platform Static and DFX Region**
+   **Figure: QDMA Platform Static and DFX Region**
 
 --------------------------
 
@@ -43,7 +43,7 @@ Static Region Components
 **************************
 - PCIe Gen4x8 link for host to card connectivity
 
-- `XDMA <PG347_>`_ for application data movement between host memory and card memory
+- `QDMA <PG347qdma_>`_ for application data movement between host memory and card memory
 
 - RPU for embedded card management including DFX download (XCLBIN), platform update, sensor reporting, etc.
 
@@ -51,8 +51,9 @@ Static Region Components
 
 :ref:`Installing a deployment platform <Installation Guide for Platform Deployment Packages>` on the cards instantiates the static region including the above components.
 
+
 .. important:: 
-   Installation of the VCK5000 Gen4x8 XDMA deployment package requires additional steps compared to the prior VCK5000 Gen3x16 XDMA platform.  Please review and follow all guidance on :ref:`the VCK5000 migration page <VCK5000 Migration Guide>` to ensure correct installation of this deployment package on the VCK5000 card.
+   Installation of the VCK5000 Gen4x8 QDMA deployment package requires additional steps compared to the prior VCK5000 Gen3x16 XDMA platform.  Please review and follow all guidance on :ref:`the VCK5000 migration page <VCK5000 Migration Guide>` to ensure correct installation of this deployment package on the VCK5000 card.
 
 --------------------------
 
@@ -81,13 +82,13 @@ Platform Details
 ************************
 
 
--  **Platform name:** xilinx-vck5000-gen4x8-xdma-base-2
--  **Supported by:** Vitis tools 2022.1, no support for other tools versions
--  **Platform UUID:** 04624343-B44B-B0A1-3CD4-8A411789FF20
--  **Interface UUID:** AE9AF7BC-A57D-DE8A-3BA8-A3F9262D78BB
--  **Release Date:** April 2022
--  **Created by:** 2022.1 tools
--  **Supported XRT versions:** 2022.1
+-  **Platform name:** xilinx-vck5000-gen4x8-qdma-base-2
+-  **Supported by:** Vitis tools 2022.2, no support for other tools versions
+-  **Platform UUID:** 05DCA096-76CB-730B-8D19-EC1192FBAE3F
+-  **Interface UUID:** EAAE3FB8-B262-B65B-21FE-C0676792EBFC
+-  **Release Date:** December 2022
+-  **Created by:** 2022.2 tools
+-  **Supported XRT versions:** 2022.2
 -  **Link speed:** Up to 8 lane Gen4
 -  **Target card:** VCK5000-AIE-ADK-P-G-ED
 
@@ -105,7 +106,7 @@ Feature Map
 
 
    "DFX", "1-RP"
-   "DMA", "XDMA PCIe Gen4x8, 2-channel, 512bit 250MHz datapath"
+   "DMA", "QDMA PCIe Gen4x8, 2-channel, 512bit 250MHz datapath"
    "DDR", "12GB available to DFX"
    "PLRAM", "1x128KB"
    "DFX Clocking", "2x scalable clocks. Default 300MHz & 500MHz. 1 fixed 100MHz clock"
@@ -121,15 +122,15 @@ For more details on each feature please see :ref:`Platform Features <arch featur
 Static Region Floorplan and Resource Usage
 ********************************************
 
-As is shown above in `Platform Static and DFX Region <Figure Platform Static and DFX Region_>`_, the static region in the VCK5000 Gen4x8 XDMA mainly comprises the hardened PCIe interconnect, XDMA data mover, RPU processing subsystem and PL connectivity for the PL DFX region. The APU subsystem is loaded as part of the Static Region however it is available to run user applications in the form the PS Kernels.
+As is shown above in `Platform Static and DFX Region <Figure Platform Static and DFX Region_>`_, the static region in the VCK5000 Gen4x8 QDMA mainly comprises the hardened PCIe interconnect, QDMA data mover, RPU processing subsystem and PL connectivity for the PL DFX region. The APU subsystem is loaded as part of the Static Region however it is available to run user applications in the form the PS Kernels.
 
 The VCK5000 platform Static Region utilises mostly hard silicon IP and does not consume significant PL usage.
 
 .. csv-table:: **Table: DFX Available VC1902 Resources**
    :header: "Type", "VC1902 Total", "Static Reserved", "% of Total", "DFX-Avail", "% of Total"
 
-   "LUT",       "900K", "22K",  "2.4",  "878k",     "97.6"
-   "FF",        "1.8M", "44K",  "2.4",  "1756K",    "97.6"
+   "LUT",       "900K", "20K",  "2.2",  "880k",     "97.8"
+   "FF",        "1.8M", "40K",  "2.2",  "1760K",    "97.8"
    "BRAM36",    "967",  "0",    "0",    "967",      "100"
    "URAM",      "463",  "0",    "0",    "463",      "100"
    "DSP",       "1968", "0",    "0",    "1968",     "100"

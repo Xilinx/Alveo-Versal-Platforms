@@ -5,12 +5,13 @@
 
 .. _ug list:
 
-Alveo Versal Userguides
+Alveo Versal User Guides
 #######################################
 
 
 - :ref:`VCK5000 Gen3x16 XDMA Vitis Platform`
 - :ref:`VCK5000 Gen4x8 XDMA Vitis Platform`
+- :ref:`VCK5000 Gen4x8 QDMA Vitis Platform`
 
 
 ----------------------------------

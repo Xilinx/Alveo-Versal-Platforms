@@ -135,7 +135,10 @@ All installation packages can be downloaded from the relevant lounges as listed 
    "Manufacturing Image", "N/A", "4.4.9", "A1D8D240-49C0-ED21-27A9-C3EC8520ECB1"
    "`vck5000-gen3x16-xdma-base-1 <VCK5000 Gen3x16 Installation Packages_>`_", "2021.2", "4.4.12", "96E93BAB-A74E-D333-EE00-F559D71933A2"
    "`vck5000-gen4x8-xdma-base-2 <VCK5000 Gen4x8 XDMA Installation Packages_>`_", "2022.1", "4.4.33", "04624343-B44B-B0A1-3CD4-8A411789FF20"
-
+   "`vck5000-gen4x8-qdma-base-2 <VCK5000 Gen4x8 QDMA Installation Packages_>`_", "2022.2", "4.4.35", "05DCA096-76CB-730B-8D19-EC1192FBAE3F"
+ 
+.. note:: 
+   VCK5000 Data Center Acceleration Development Kit Hardware Installation Guide (UG1531) is only applicable to new VCK5000 cards running the ``vck5000-gen3x16-xdma-base-1`` platform.
 
 The ``Platform Name``, ``SC Version`` and ``Platform UUID`` will be used later to perform and verify installation. Click the links in the table above to download the required installation packages. 
 

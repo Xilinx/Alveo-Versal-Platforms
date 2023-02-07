@@ -35,7 +35,7 @@ The division of Static and DFX regions for the Gen4x8 XDMA platform is shown bel
    :scale: 100 %
    :align: center
 
-   **Figure: Platform Static and DFX Region**
+   **Figure: XDMA Platform Static and DFX Region**
 
 --------------------------
 
@@ -50,6 +50,9 @@ Static Region Components
 - APU OS loading for PS Kernel support
 
 :ref:`Installing a deployment platform <Installation Guide for Platform Deployment Packages>` on the cards instantiates the static region including the above components.
+
+.. important:: 
+   Installation of the VCK5000 Gen4x8 XDMA deployment package requires additional steps compared to the prior VCK5000 Gen3x16 XDMA platform.  Please review and follow all guidance on :ref:`the VCK5000 migration page <VCK5000 Migration Guide>` to ensure correct installation of this deployment package on the VCK5000 card.
 
 --------------------------
 
@@ -80,8 +83,8 @@ Platform Details
 
 -  **Platform name:** xilinx-vck5000-gen4x8-xdma-base-2
 -  **Supported by:** Vitis tools 2022.1, no support for other tools versions
--  **Platform UUID:** TBC
--  **Interface UUID:** TBC
+-  **Platform UUID:** 04624343-B44B-B0A1-3CD4-8A411789FF20
+-  **Interface UUID:** AE9AF7BC-A57D-DE8A-3BA8-A3F9262D78BB
 -  **Release Date:** April 2022
 -  **Created by:** 2022.1 tools
 -  **Supported XRT versions:** 2022.1
