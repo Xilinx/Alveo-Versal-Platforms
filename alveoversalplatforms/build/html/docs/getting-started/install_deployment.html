@@ -343,11 +343,11 @@ deb</p></td>
 <p class="admonition-title">Note</p>
 <p>After installing XRT, it may be necessary to setup the XRT environment to use the utilities below (xbmgmt, xbutil) by running the following command. Note that the command is dependent on the shell-type in use.</p>
 <dl>
-<dt>Use the following command in a <strong>csh</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> /opt/xilinx/xrt/setup.csh
+<dt>Use the following command in a <strong>csh</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/xilinx/xrt/setup.csh
 </pre></div>
 </div>
 </dd>
-<dt>Use the following command in a <strong>bash</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> /opt/xilinx/xrt/setup.sh
+<dt>Use the following command in a <strong>bash</strong> shell:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/xilinx/xrt/setup.sh
 </pre></div>
 </div>
 </dd>
@@ -365,22 +365,22 @@ deb</p></td>
 <div><ol class="loweralpha">
 <li><p>XRT installation requires Extra Packages for Enterprise Linux (EPEL) and a related repository. If not already installed, install EPEL on your system by following the steps provided in <a class="reference external" href="https://xilinx.github.io/XRT/master/html/install.html">XRT Installation</a>.</p></li>
 <li><p>Run the following commands to install kernel headers and kernel development packages. Ensure that uname is surrounded by backticks (`) and not single quotes (‘).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install kernel-headers-<span class="sb">`</span>uname -r<span class="sb">`</span>
-$ sudo yum install kernel-devel-<span class="sb">`</span>uname -r<span class="sb">`</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>kernel-headers-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>kernel-devel-<span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
 </pre></div>
 </div>
 </li>
 <li><p>After the previous command completes, <code class="docutils literal notranslate"><span class="pre">warm</span> <span class="pre">reboot</span></code> your machine.</p></li>
 <li><p>Download the Xilinx® runtime (XRT) and deployment target platform installation packages from the appropriate lounge, see links in table above.</p></li>
 <li><p>Install the XRT package by running the following command from within the directory where the installation packages reside. &lt;version&gt; is the latter part of the installation package file name.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install ./xrt_&lt;version&gt;.rpm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./xrt_&lt;version&gt;.rpm
 </pre></div>
 </div>
 <p>This will install XRT to <code class="docutils literal notranslate"><span class="pre">/opt/xilinx/xrt/</span></code>. Follow the instructions when prompted throughout the installation.</p>
 </li>
 <li><p>Unpack the deployment target platform tar.gz file into a single directory. The location of the directory is not important, however the directory should not contain any other files.</p></li>
 <li><p>Install the deployment packages. From within the directory where the installation packages were unpacked, run the following command. This will install all deployment packages.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install ./*.rpm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./*.rpm
 </pre></div>
 </div>
 </li>
@@ -397,7 +397,7 @@ $ sudo yum install kernel-devel-<span class="sb">`</span>uname -r<span class="sb
 <div><ol class="loweralpha">
 <li><p>From the appropriate lounge, see links in table above, download the Xilinx® runtime (XRT) and deployment target platform installation packages.</p></li>
 <li><p>Install the XRT installation package by running the following command from within the directory where the installation packages reside. &lt;version&gt; is the latter part of the installation package file name.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ./xrt_&lt;version&gt;.deb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./xrt_&lt;version&gt;.deb
 </pre></div>
 </div>
 <p>This will install XRT to <code class="docutils literal notranslate"><span class="pre">/opt/xilinx/xrt/</span></code> and its necessary dependencies. Follow the instructions when prompted throughout the installation.</p>
@@ -406,7 +406,7 @@ $ sudo yum install kernel-devel-<span class="sb">`</span>uname -r<span class="sb
 <ol class="loweralpha" start="6">
 <li><p>Unpack the deployment target platform tar.gz file into a single directory. The location of the directory is not important, however the directory should not contain any other files.</p></li>
 <li><p>Install the deployment packages. From within the directory where the installation packages were unpacked, run the following command. This will install all deployment packages.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ./*.deb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./*.deb
 </pre></div>
 </div>
 </li>
@@ -425,24 +425,24 @@ $ sudo yum install kernel-devel-<span class="sb">`</span>uname -r<span class="sb
 <blockquote>
 <div><ol class="loweralpha">
 <li><p>Flash the platform firmware on the card.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base shell --device &lt;Management BDF&gt; --image &lt;platform name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>shell<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;platform<span class="w"> </span>name&gt;
 </pre></div>
 </div>
 <p>To find the correct &lt;platform name&gt; see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a> above.
 To find &lt;Management BDF&gt; see <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a></p>
 <p>A message similar to the following will be displayed after successfully flashing the card:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> device<span class="o">(</span>s<span class="o">)</span> flashed successfully.
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>flashed<span class="w"> </span>successfully.
 
 ****************************************************
-Cold reboot machine to load the new image on device<span class="o">(</span>s<span class="o">)</span>.
+Cold<span class="w"> </span>reboot<span class="w"> </span>machine<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>image<span class="w"> </span>on<span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span>.
 ****************************************************
 </pre></div>
 </div>
 </div></blockquote>
 <p>If the card has already been flashed with the current platform firmware, you will see a message similar to the following:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span> up-to-date and <span class="k">do</span> not need to be flashed.
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>up-to-date<span class="w"> </span>and<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>flashed.
 </pre></div>
 </div>
 </div></blockquote>
@@ -463,7 +463,7 @@ If you have multiple cards installed in the system, you must run the above xbmgm
 </div>
 </li>
 <li><p>Run the following command to update the SC firmware on the card. It is the identical command used to flash the platform firmware on the card.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base sc --device &lt;Management BDF&gt; --image &lt;base name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>sc<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;base<span class="w"> </span>name&gt;
 </pre></div>
 </div>
 <div class="admonition-info admonition">
@@ -474,17 +474,17 @@ If you have multiple cards installed in the system, you must run the above xbmgm
 <p>A message similar to the following will be displayed after a successful SC firmware update, where the device Management BDF is given in square brackets.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Report
-<span class="o">[</span><span class="m">0000</span>:af:00.0<span class="o">]</span> : Successfully flashed
-<span class="m">1</span> device<span class="o">(</span>s<span class="o">)</span> flashed successfully.
+<span class="o">[</span><span class="m">0000</span>:af:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>Successfully<span class="w"> </span>flashed
+<span class="m">1</span><span class="w"> </span>device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>flashed<span class="w"> </span>successfully.
 ******************************************************************
-Warm reboot is required to recognize new SC image on the device.
+Warm<span class="w"> </span>reboot<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span>to<span class="w"> </span>recognize<span class="w"> </span>new<span class="w"> </span>SC<span class="w"> </span>image<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>device.
 ******************************************************************
 </pre></div>
 </div>
 </div></blockquote>
 <p>If the card already has the current firmware, a message similar to the following is displayed and no additional installation steps are necessary.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span> up-to-date and <span class="k">do</span> not need to be flashed.
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Device<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>up-to-date<span class="w"> </span>and<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>flashed.
 </pre></div>
 </div>
 </div></blockquote>
@@ -511,43 +511,43 @@ Warm reboot is required to recognize new SC image on the device.
 <blockquote>
 <div><ol class="loweralpha">
 <li><p>Checking for PCIe card enumeration on lspci - Enter the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo lspci -vd 10ee:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>lspci<span class="w"> </span>-vd<span class="w"> </span>10ee:
 </pre></div>
 </div>
 <p>If the card is successfully installed and found by the operating system, you will see a message similar to the following. Note that for each card, there will be two physical functions found: one for management and one for user. See <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a> for additional details.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">02</span>:00.0 Memory controller: Xilinx® Corporation Device <span class="m">5048</span>
-   Subsystem: Xilinx® Corporation Device 000e
-   Physical Slot: <span class="m">1</span>
-   Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">26</span>, NUMA node <span class="m">0</span>
-   Memory at f0000000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>128M<span class="o">]</span>
-   Memory at f8000000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>128K<span class="o">]</span>
-   Capabilities: <span class="o">[</span><span class="m">40</span><span class="o">]</span> Power Management version <span class="m">3</span>
-   Capabilities: <span class="o">[</span><span class="m">48</span><span class="o">]</span> MSI: Enable- <span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1 Maskable- 64bit+
-   Capabilities: <span class="o">[</span><span class="m">60</span><span class="o">]</span> MSI-X: Enable- <span class="nv">Count</span><span class="o">=</span><span class="m">32</span> Masked-
-   Capabilities: <span class="o">[</span><span class="m">70</span><span class="o">]</span> Express Endpoint, MSI <span class="m">00</span>
-   Capabilities: <span class="o">[</span><span class="m">100</span><span class="o">]</span> Advanced Error Reporting
-   Capabilities: <span class="o">[</span><span class="m">180</span><span class="o">]</span> Alternative Routing-ID Interpretation <span class="o">(</span>ARI<span class="o">)</span>
-   Capabilities: <span class="o">[</span>1c0<span class="o">]</span> <span class="c1">#19</span>
-   Capabilities: <span class="o">[</span>3a0<span class="o">]</span> <span class="c1">#25</span>
-   Capabilities: <span class="o">[</span><span class="m">600</span><span class="o">]</span> Vendor Specific Information: <span class="nv">ID</span><span class="o">=</span><span class="m">0020</span> <span class="nv">Rev</span><span class="o">=</span><span class="m">0</span> <span class="nv">Len</span><span class="o">=</span><span class="m">010</span> &lt;?&gt;
-   Kernel driver <span class="k">in</span> use: xclmgmt
-   Kernel modules: xclmgmt
-<span class="m">02</span>:00.1 Memory controller: Xilinx® Corporation Device <span class="m">5049</span>
-   Subsystem: Xilinx® Corporation Device 000e
-   Physical Slot: <span class="m">1</span>
-   Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">68</span>, NUMA node <span class="m">0</span>
-   Memory at f8020000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>64K<span class="o">]</span>
-   Memory at e0000000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>256M<span class="o">]</span>
-   Capabilities: <span class="o">[</span><span class="m">40</span><span class="o">]</span> Power Management version <span class="m">3</span>
-   Capabilities: <span class="o">[</span><span class="m">48</span><span class="o">]</span> MSI: Enable- <span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1 Maskable- 64bit+
-   Capabilities: <span class="o">[</span><span class="m">60</span><span class="o">]</span> MSI-X: Enable- <span class="nv">Count</span><span class="o">=</span><span class="m">32</span> Masked-
-   Capabilities: <span class="o">[</span><span class="m">70</span><span class="o">]</span> Express Endpoint, MSI <span class="m">00</span>
-   Capabilities: <span class="o">[</span><span class="m">100</span><span class="o">]</span> Advanced Error Reporting
-   Capabilities: <span class="o">[</span><span class="m">180</span><span class="o">]</span> Alternative Routing-ID Interpretation <span class="o">(</span>ARI<span class="o">)</span>
-   Capabilities: <span class="o">[</span><span class="m">600</span><span class="o">]</span> Vendor Specific Information: <span class="nv">ID</span><span class="o">=</span><span class="m">0020</span> <span class="nv">Rev</span><span class="o">=</span><span class="m">0</span> <span class="nv">Len</span><span class="o">=</span><span class="m">010</span> &lt;?&gt;
-   Kernel driver <span class="k">in</span> use: xocl
-   Kernel modules: xocl
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">02</span>:00.0<span class="w"> </span>Memory<span class="w"> </span>controller:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span><span class="m">5048</span>
+<span class="w">   </span>Subsystem:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span>000e
+<span class="w">   </span>Physical<span class="w"> </span>Slot:<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">26</span>,<span class="w"> </span>NUMA<span class="w"> </span>node<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>128M<span class="o">]</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f8000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>128K<span class="o">]</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">40</span><span class="o">]</span><span class="w"> </span>Power<span class="w"> </span>Management<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">48</span><span class="o">]</span><span class="w"> </span>MSI:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1<span class="w"> </span>Maskable-<span class="w"> </span>64bit+
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">60</span><span class="o">]</span><span class="w"> </span>MSI-X:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">32</span><span class="w"> </span>Masked-
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">70</span><span class="o">]</span><span class="w"> </span>Express<span class="w"> </span>Endpoint,<span class="w"> </span>MSI<span class="w"> </span><span class="m">00</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">100</span><span class="o">]</span><span class="w"> </span>Advanced<span class="w"> </span>Error<span class="w"> </span>Reporting
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">180</span><span class="o">]</span><span class="w"> </span>Alternative<span class="w"> </span>Routing-ID<span class="w"> </span>Interpretation<span class="w"> </span><span class="o">(</span>ARI<span class="o">)</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span>1c0<span class="o">]</span><span class="w"> </span><span class="c1">#19</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span>3a0<span class="o">]</span><span class="w"> </span><span class="c1">#25</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">600</span><span class="o">]</span><span class="w"> </span>Vendor<span class="w"> </span>Specific<span class="w"> </span>Information:<span class="w"> </span><span class="nv">ID</span><span class="o">=</span><span class="m">0020</span><span class="w"> </span><span class="nv">Rev</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Len</span><span class="o">=</span><span class="m">010</span><span class="w"> </span>&lt;?&gt;
+<span class="w">   </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>xclmgmt
+<span class="w">   </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>xclmgmt
+<span class="m">02</span>:00.1<span class="w"> </span>Memory<span class="w"> </span>controller:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span><span class="m">5049</span>
+<span class="w">   </span>Subsystem:<span class="w"> </span>Xilinx®<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span>000e
+<span class="w">   </span>Physical<span class="w"> </span>Slot:<span class="w"> </span><span class="m">1</span>
+<span class="w">   </span>Flags:<span class="w"> </span>bus<span class="w"> </span>master,<span class="w"> </span>fast<span class="w"> </span>devsel,<span class="w"> </span>latency<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>IRQ<span class="w"> </span><span class="m">68</span>,<span class="w"> </span>NUMA<span class="w"> </span>node<span class="w"> </span><span class="m">0</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>f8020000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>64K<span class="o">]</span>
+<span class="w">   </span>Memory<span class="w"> </span>at<span class="w"> </span>e0000000<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit,<span class="w"> </span>prefetchable<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">size</span><span class="o">=</span>256M<span class="o">]</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">40</span><span class="o">]</span><span class="w"> </span>Power<span class="w"> </span>Management<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">48</span><span class="o">]</span><span class="w"> </span>MSI:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">1</span>/1<span class="w"> </span>Maskable-<span class="w"> </span>64bit+
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">60</span><span class="o">]</span><span class="w"> </span>MSI-X:<span class="w"> </span>Enable-<span class="w"> </span><span class="nv">Count</span><span class="o">=</span><span class="m">32</span><span class="w"> </span>Masked-
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">70</span><span class="o">]</span><span class="w"> </span>Express<span class="w"> </span>Endpoint,<span class="w"> </span>MSI<span class="w"> </span><span class="m">00</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">100</span><span class="o">]</span><span class="w"> </span>Advanced<span class="w"> </span>Error<span class="w"> </span>Reporting
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">180</span><span class="o">]</span><span class="w"> </span>Alternative<span class="w"> </span>Routing-ID<span class="w"> </span>Interpretation<span class="w"> </span><span class="o">(</span>ARI<span class="o">)</span>
+<span class="w">   </span>Capabilities:<span class="w"> </span><span class="o">[</span><span class="m">600</span><span class="o">]</span><span class="w"> </span>Vendor<span class="w"> </span>Specific<span class="w"> </span>Information:<span class="w"> </span><span class="nv">ID</span><span class="o">=</span><span class="m">0020</span><span class="w"> </span><span class="nv">Rev</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">Len</span><span class="o">=</span><span class="m">010</span><span class="w"> </span>&lt;?&gt;
+<span class="w">   </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>xocl
+<span class="w">   </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>xocl
 </pre></div>
 </div>
 </div></blockquote>
@@ -555,7 +555,7 @@ Warm reboot is required to recognize new SC image on the device.
 <li><p>Confirm Firmware Installation</p>
 <p>When a card has successfully been installed and the firmware has been updated, both entries for Platform and the satellite controller (SC) version installed on the card and the system must match. If they do not match, the system will be unable to correctly run applications on your card.</p>
 <p>To confirm they match, run the following command and visually compare the <code class="docutils literal notranslate"><span class="pre">Platform</span></code>, <code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">UUID</span></code> and <code class="docutils literal notranslate"><span class="pre">SC</span> <span class="pre">Version</span></code> entries under ‘Flashable partitions running on FPGA’ and ‘Flashable partitions installed in system’ match.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt examine -device &lt;Management BDF&gt; -r platform
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>-device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w"> </span>-r<span class="w"> </span>platform
 </pre></div>
 </div>
 <p>The response to this command is shown below. Please check the following information for valid operation.</p>
@@ -565,32 +565,32 @@ Warm reboot is required to recognize new SC image on the device.
 <li><p><code class="docutils literal notranslate"><span class="pre">Platform</span> <span class="pre">UUID</span></code> of <strong>running</strong> and <strong>installed</strong> matches, see <a class="reference internal" href="#alveo-versal-deployment-packages-table">Alveo Versal Deployment Packages Table</a> for expected Platform UUID</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-------------------------------------------------------
-<span class="m">1</span>/1 <span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span> : xilinx_vck5000_gen4x8_xdma_base_2
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
 -------------------------------------------------------
-Flash properties
-Type                 : ospi_xgq
-Serial Number        : N/A
+Flash<span class="w"> </span>properties
+Type<span class="w">                 </span>:<span class="w"> </span>ospi_xgq
+Serial<span class="w"> </span>Number<span class="w">        </span>:<span class="w"> </span>N/A
 
-Device properties
-Type                 : vck5000
-Name                 : N/A
-Config Mode          : <span class="m">0</span>
-Max Power            : N/A
+Device<span class="w"> </span>properties
+Type<span class="w">                 </span>:<span class="w"> </span>vck5000
+Name<span class="w">                 </span>:<span class="w"> </span>N/A
+Config<span class="w"> </span>Mode<span class="w">          </span>:<span class="w"> </span><span class="m">0</span>
+Max<span class="w"> </span>Power<span class="w">            </span>:<span class="w"> </span>N/A
 
-Flashable partitions running on FPGA
-Platform             : xilinx_vck5000_gen4x8_xdma_base_2
-SC Version           : <span class="m">4</span>.4.32
-Platform UUID        : 539C76AC-F219-2CDC-B9DB-69A6450407C0
-Interface UUID       : 1782B562-019C-AB41-EE85-7964621BB773
+Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>FPGA
+Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
+SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span><span class="m">4</span>.4.32
+Platform<span class="w"> </span>UUID<span class="w">        </span>:<span class="w"> </span>539C76AC-F219-2CDC-B9DB-69A6450407C0
+Interface<span class="w"> </span>UUID<span class="w">       </span>:<span class="w"> </span>1782B562-019C-AB41-EE85-7964621BB773
 
-Flashable partitions installed <span class="k">in</span> system
-Platform             : xilinx_vck5000_gen4x8_xdma_base_2
-SC Version           : <span class="m">4</span>.4.32
-Platform UUID        : 539C76AC-F219-2CDC-B9DB-69A6450407C0
+Flashable<span class="w"> </span>partitions<span class="w"> </span>installed<span class="w"> </span><span class="k">in</span><span class="w"> </span>system
+Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000_gen4x8_xdma_base_2
+SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span><span class="m">4</span>.4.32
+Platform<span class="w"> </span>UUID<span class="w">        </span>:<span class="w"> </span>539C76AC-F219-2CDC-B9DB-69A6450407C0
 
-Bootable Partitions:
-Default              : ACTIVE
-Backup               : INACTIVE
+Bootable<span class="w"> </span>Partitions:
+Default<span class="w">              </span>:<span class="w"> </span>ACTIVE
+Backup<span class="w">               </span>:<span class="w"> </span>INACTIVE
 </pre></div>
 </div>
 </div></blockquote>
@@ -604,40 +604,40 @@ Backup               : INACTIVE
 <li><p>Card Validation</p>
 <p>Card installation can be validated using the ‘xbutil validate’ command. This command performs various tests and checks on the card including PCIe link status, SC version status, memory and bandwidth tests and auxiliary power connection where applicable. Full command details can be found in <a class="reference external" href="https://xilinx.github.io/XRT/master/html/xbutil.html">xbutil</a> documentation. Depending on the card tested, not all tests are valid or may require the function to be enabled first (e.g. Peer-2-Peer).</p>
 <p>Use the following command to run the card validation test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xbutil validate -d &lt;User BDF&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>validate<span class="w"> </span>-d<span class="w"> </span>&lt;User<span class="w"> </span>BDF&gt;
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">BDF</span></code> is the PCIe address of the card to be validated. See <a class="reference internal" href="#obtaining-card-bdf-values">Obtaining Card BDF Values</a> to obtain the user BDF value.</p>
 <p>If the card was installed and validated successfully, a message similar to the following will be displayed. Additional validation details are displayed by appending the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to the command.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Starting validation <span class="k">for</span> <span class="m">1</span> devices
-Platform         : xilinx_vck5000_gen3x16_xdma_base_1
-SC Version        : <span class="m">4</span>.4.12
-Platform ID        : 1E56042E-C345-CF41-5D66-4E9EE73451FC
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Starting<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>devices
+Platform<span class="w">         </span>:<span class="w"> </span>xilinx_vck5000_gen3x16_xdma_base_1
+SC<span class="w"> </span>Version<span class="w">        </span>:<span class="w"> </span><span class="m">4</span>.4.12
+Platform<span class="w"> </span>ID<span class="w">        </span>:<span class="w"> </span>1E56042E-C345-CF41-5D66-4E9EE73451FC
 -------------------------------------------------------------------------------
-Test <span class="m">1</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : PCIE link
-   Test Status      : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>PCIE<span class="w"> </span>link
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Test <span class="m">2</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : SC version
-   Test Status      : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>SC<span class="w"> </span>version
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Test <span class="m">3</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : Verify kernel
-Test Status        : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>Verify<span class="w"> </span>kernel
+Test<span class="w"> </span>Status<span class="w">        </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Test <span class="m">4</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : DMA
-Details          : Host -&gt; PCIe -&gt; FPGA write <span class="nv">bandwidth</span> <span class="o">=</span> <span class="m">10820</span>.6 MB/s
-               Host &lt;- PCIe &lt;- FPGA <span class="nb">read</span> <span class="nv">bandwidth</span> <span class="o">=</span> <span class="m">10513</span>.8 MB/s
-Test Status        : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>DMA
+Details<span class="w">          </span>:<span class="w"> </span>Host<span class="w"> </span>-&gt;<span class="w"> </span>PCIe<span class="w"> </span>-&gt;<span class="w"> </span>FPGA<span class="w"> </span>write<span class="w"> </span><span class="nv">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10820</span>.6<span class="w"> </span>MB/s
+<span class="w">               </span>Host<span class="w"> </span>&lt;-<span class="w"> </span>PCIe<span class="w"> </span>&lt;-<span class="w"> </span>FPGA<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="nv">bandwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10513</span>.8<span class="w"> </span>MB/s
+Test<span class="w"> </span>Status<span class="w">        </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Test <span class="m">5</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : iops
-Details          : IOPS: <span class="m">132544</span> <span class="o">(</span>hello<span class="o">)</span>
-   Test Status      : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>iops
+Details<span class="w">          </span>:<span class="w"> </span>IOPS:<span class="w"> </span><span class="m">132544</span><span class="w"> </span><span class="o">(</span>hello<span class="o">)</span>
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Test <span class="m">6</span> <span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span>   : Bandwidth kernel
-Details          : Maximum throughput: <span class="m">50540</span> MB/s
-   Test Status      : <span class="o">[</span>PASSED<span class="o">]</span>
+Test<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span><span class="m">0000</span>:01:00.1<span class="o">]</span><span class="w">   </span>:<span class="w"> </span>Bandwidth<span class="w"> </span>kernel
+Details<span class="w">          </span>:<span class="w"> </span>Maximum<span class="w"> </span>throughput:<span class="w"> </span><span class="m">50540</span><span class="w"> </span>MB/s
+<span class="w">   </span>Test<span class="w"> </span>Status<span class="w">      </span>:<span class="w"> </span><span class="o">[</span>PASSED<span class="o">]</span>
 -------------------------------------------------------------------------------
-Validation completed. Please run the <span class="nb">command</span> <span class="s1">&#39;--verbose&#39;</span> option <span class="k">for</span> more
+Validation<span class="w"> </span>completed.<span class="w"> </span>Please<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">&#39;--verbose&#39;</span><span class="w"> </span>option<span class="w"> </span><span class="k">for</span><span class="w"> </span>more
 details
 </pre></div>
 </div>
@@ -649,41 +649,41 @@ details
 </li>
 <li><p>Temperature and Electrical Status</p>
 <p>To monitor the current electrical and temperature status, use the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xbutil examine --device &lt;user BDF&gt; --report thermal electrical
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>examine<span class="w"> </span>--device<span class="w"> </span>&lt;user<span class="w"> </span>BDF&gt;<span class="w"> </span>--report<span class="w"> </span>thermal<span class="w"> </span>electrical
 </pre></div>
 </div>
 <p>It will generate an output similar to the following. For command details see the xbutil documentation.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------------
-<span class="m">1</span>/1 <span class="o">[</span><span class="m">0000</span>:03:00.1<span class="o">]</span> : xilinx_vck5000_gen3x16_xdma_base_1
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:03:00.1<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000_gen3x16_xdma_base_1
 --------------------------------------------------------
 Thermals
-PCB Top Front : <span class="m">24</span> C
-PCB Top Rear : <span class="m">28</span> C
-FPGA     : <span class="m">36</span> C
+PCB<span class="w"> </span>Top<span class="w"> </span>Front<span class="w"> </span>:<span class="w"> </span><span class="m">24</span><span class="w"> </span>C
+PCB<span class="w"> </span>Top<span class="w"> </span>Rear<span class="w"> </span>:<span class="w"> </span><span class="m">28</span><span class="w"> </span>C
+FPGA<span class="w">     </span>:<span class="w"> </span><span class="m">36</span><span class="w"> </span>C
 
 Electrical
-Max Power   : <span class="m">225</span> Watts
-Power     : <span class="m">25</span>.839361 Watts
-Power Warning : <span class="nb">false</span>
+Max<span class="w"> </span>Power<span class="w">   </span>:<span class="w"> </span><span class="m">225</span><span class="w"> </span>Watts
+Power<span class="w">     </span>:<span class="w"> </span><span class="m">25</span>.839361<span class="w"> </span>Watts
+Power<span class="w"> </span>Warning<span class="w"> </span>:<span class="w"> </span><span class="nb">false</span>
 
-Power Rails : Voltage Current
-<span class="m">12</span> Volts Auxillary  : <span class="m">24</span>.376 V, <span class="m">0</span>.603 A
-<span class="m">12</span> Volts PCI Express : <span class="m">12</span>.149 V, <span class="m">0</span>.917 A
-<span class="m">3</span>.3 Volts PCI Express : <span class="m">3</span>.279 V
-<span class="m">3</span>.3 Volts Auxillary  : <span class="m">3</span>.327 V
-Internal FPGA Vcc   : <span class="m">0</span>.803 V, <span class="m">48</span>.000 A
-DDR Vpp Top      : <span class="m">2</span>.492 V
-<span class="m">5</span>.5 Volts System   : <span class="m">5</span>.011 V
-Vcc <span class="m">1</span>.2 Volts Top   : <span class="m">1</span>.203 V
-<span class="m">1</span>.8 Volts Top     : <span class="m">1</span>.803 V
-<span class="m">0</span>.9 Volts Vcc     : <span class="m">0</span>.878 V
-Mgt Vtt        : <span class="m">1</span>.197 V
-<span class="m">3</span>.3 Volts Vcc     : <span class="m">3</span>.270 V
-Vcc <span class="m">1</span>.2 Volts i    : <span class="m">2</span>.200 A
-Vcc Auxillary     : <span class="m">1</span>.508 V
-Vcc Auxillary Pmc   : <span class="m">1</span>.512 V
-Vcc Ram        : <span class="m">0</span>.800 V
+Power<span class="w"> </span>Rails<span class="w"> </span>:<span class="w"> </span>Voltage<span class="w"> </span>Current
+<span class="m">12</span><span class="w"> </span>Volts<span class="w"> </span>Auxillary<span class="w">  </span>:<span class="w"> </span><span class="m">24</span>.376<span class="w"> </span>V,<span class="w"> </span><span class="m">0</span>.603<span class="w"> </span>A
+<span class="m">12</span><span class="w"> </span>Volts<span class="w"> </span>PCI<span class="w"> </span>Express<span class="w"> </span>:<span class="w"> </span><span class="m">12</span>.149<span class="w"> </span>V,<span class="w"> </span><span class="m">0</span>.917<span class="w"> </span>A
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>PCI<span class="w"> </span>Express<span class="w"> </span>:<span class="w"> </span><span class="m">3</span>.279<span class="w"> </span>V
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>Auxillary<span class="w">  </span>:<span class="w"> </span><span class="m">3</span>.327<span class="w"> </span>V
+Internal<span class="w"> </span>FPGA<span class="w"> </span>Vcc<span class="w">   </span>:<span class="w"> </span><span class="m">0</span>.803<span class="w"> </span>V,<span class="w"> </span><span class="m">48</span>.000<span class="w"> </span>A
+DDR<span class="w"> </span>Vpp<span class="w"> </span>Top<span class="w">      </span>:<span class="w"> </span><span class="m">2</span>.492<span class="w"> </span>V
+<span class="m">5</span>.5<span class="w"> </span>Volts<span class="w"> </span>System<span class="w">   </span>:<span class="w"> </span><span class="m">5</span>.011<span class="w"> </span>V
+Vcc<span class="w"> </span><span class="m">1</span>.2<span class="w"> </span>Volts<span class="w"> </span>Top<span class="w">   </span>:<span class="w"> </span><span class="m">1</span>.203<span class="w"> </span>V
+<span class="m">1</span>.8<span class="w"> </span>Volts<span class="w"> </span>Top<span class="w">     </span>:<span class="w"> </span><span class="m">1</span>.803<span class="w"> </span>V
+<span class="m">0</span>.9<span class="w"> </span>Volts<span class="w"> </span>Vcc<span class="w">     </span>:<span class="w"> </span><span class="m">0</span>.878<span class="w"> </span>V
+Mgt<span class="w"> </span>Vtt<span class="w">        </span>:<span class="w"> </span><span class="m">1</span>.197<span class="w"> </span>V
+<span class="m">3</span>.3<span class="w"> </span>Volts<span class="w"> </span>Vcc<span class="w">     </span>:<span class="w"> </span><span class="m">3</span>.270<span class="w"> </span>V
+Vcc<span class="w"> </span><span class="m">1</span>.2<span class="w"> </span>Volts<span class="w"> </span>i<span class="w">    </span>:<span class="w"> </span><span class="m">2</span>.200<span class="w"> </span>A
+Vcc<span class="w"> </span>Auxillary<span class="w">     </span>:<span class="w"> </span><span class="m">1</span>.508<span class="w"> </span>V
+Vcc<span class="w"> </span>Auxillary<span class="w"> </span>Pmc<span class="w">   </span>:<span class="w"> </span><span class="m">1</span>.512<span class="w"> </span>V
+Vcc<span class="w"> </span>Ram<span class="w">        </span>:<span class="w"> </span><span class="m">0</span>.800<span class="w"> </span>V
 </pre></div>
 </div>
 </div></blockquote>
@@ -710,14 +710,14 @@ Vcc Ram        : <span class="m">0</span>.800 V
 <div class="section" id="management-bdf">
 <h4>Management BDF<a class="headerlink" href="#management-bdf" title="Permalink to this heading">¶</a></h4>
 <p>The Management BDF is used by the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span></code> utility to perform operations such as platform update and XCLBIN download. To display the Management BDF values of installed cards, use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt examine
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>examine
 </pre></div>
 </div>
 <p>The Management BDF values of installed cards are given in the square brackets under ‘Devices present’. In the below example, only one device is present and has a management BDF of 0000:d8:00.0.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices present
-BDF             :  Shell           Platform UUID  Device ID
-<span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span>  :  xilinx_vck5000  0x0            mgmt<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">55296</span><span class="o">)</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices<span class="w"> </span>present
+BDF<span class="w">             </span>:<span class="w">  </span>Shell<span class="w">           </span>Platform<span class="w"> </span>UUID<span class="w">  </span>Device<span class="w"> </span>ID
+<span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w">  </span>:<span class="w">  </span>xilinx_vck5000<span class="w">  </span>0x0<span class="w">            </span>mgmt<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">55296</span><span class="o">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -725,14 +725,14 @@ BDF             :  Shell           Platform UUID  Device ID
 <div class="section" id="user-bdf">
 <h4>User BDF<a class="headerlink" href="#user-bdf" title="Permalink to this heading">¶</a></h4>
 <p>The User BDF is used by the <code class="docutils literal notranslate"><span class="pre">xbutil</span></code> utility to run applications such as <code class="docutils literal notranslate"><span class="pre">validate</span></code> and to query the status of the platform and application. To display the User BDF values of installed cards, use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xbutil examine
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbutil<span class="w"> </span>examine
 </pre></div>
 </div>
 <p>The User BDF values of installed cards are given in the square brackets under ‘Devices present’. In the below example, only one device is present and has a user BDF of 0000:d8:00.1.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices present
-BDF             :  Shell           Platform UUID  Device ID
-<span class="o">[</span><span class="m">0000</span>:d8:00.1<span class="o">]</span>  :  xilinx_vck5000  0x0            user<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">128</span><span class="o">)</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Devices<span class="w"> </span>present
+BDF<span class="w">             </span>:<span class="w">  </span>Shell<span class="w">           </span>Platform<span class="w"> </span>UUID<span class="w">  </span>Device<span class="w"> </span>ID
+<span class="o">[</span><span class="m">0000</span>:d8:00.1<span class="o">]</span><span class="w">  </span>:<span class="w">  </span>xilinx_vck5000<span class="w">  </span>0x0<span class="w">            </span>user<span class="o">(</span><span class="nv">inst</span><span class="o">=</span><span class="m">128</span><span class="o">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -749,11 +749,11 @@ BDF             :  Shell           Platform UUID  Device ID
 <div class="section" id="redhat-and-centos">
 <h4>RedHat and CentOS<a class="headerlink" href="#redhat-and-centos" title="Permalink to this heading">¶</a></h4>
 <p>During upgrading, downgrading, or uninstalling, it can be useful to list the currently installed packages. To list the currently installed deployment platform package, run the following command in a Linux terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum list installed <span class="p">|</span> grep -i xilinx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xilinx
 </pre></div>
 </div>
 <p>To list the currently installed XRT package, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum list installed <span class="p">|</span> grep -i xrt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xrt
 </pre></div>
 </div>
 <p class="rubric">Installing Newer Packages</p>
@@ -765,7 +765,7 @@ BDF             :  Shell           Platform UUID  Device ID
 <p>To install older platforms, perform the following steps.</p>
 <ol class="arabic">
 <li><p>Remove the current XRT and shell versions.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum remove xrt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>xrt
 </pre></div>
 </div>
 <div class="admonition note">
@@ -781,11 +781,11 @@ Make sure that all of the platform packages are displayed in the output terminal
 <div class="section" id="ubuntu">
 <h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">¶</a></h4>
 <p>During upgrading, downgrading, or uninstalling, it can be useful to list the currently installed packages. To list the currently installed deployment platform package, run the following command in a Linux terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt list --installed <span class="p">|</span> grep -i xilinx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xilinx
 </pre></div>
 </div>
 <p>To list the currently installed XRT package, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt list --installed <span class="p">|</span> grep -i xrt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>xrt
 </pre></div>
 </div>
 <p class="rubric">Installing Newer Packages</p>
@@ -797,7 +797,7 @@ Make sure that all of the platform packages are displayed in the output terminal
 <p>To install older platforms, perform the following steps.</p>
 <ol class="arabic">
 <li><p>Remove the current XRT and shell versions.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt remove xrt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>xrt
 </pre></div>
 </div>
 <div class="admonition note">

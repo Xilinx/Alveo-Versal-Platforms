@@ -136,30 +136,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p>Once the VCK5000 card is migrated with Stage 1 instructions below, it is not possible to revert the card to run pre-2022.1 platforms.</p>
 </div>
 <p>To determine whether migration is required run the following command. Note: It is assumed that Step 1 from <a class="reference internal" href="install_deployment.html#alveo-versal-deployment-package-installation-step-1"><span class="std std-ref">Alveo Versal Deployment Package Installation</span></a> has already been completed.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xbmgmt examine --report platform --device &lt;Management BDF&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>platform<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
 </pre></div>
 </div>
 <p>To find &lt;Management BDF&gt; see <a class="reference internal" href="install_deployment.html#obtaining-card-bdf-values"><span class="std std-ref">Obtaining Card BDF Values</span></a>.</p>
 <p>If the output from the command above contains the following then migration is needed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>------------------------------------
-<span class="m">1</span>/1 <span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span> : xilinx_vck5000
+<span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">0000</span>:d8:00.0<span class="o">]</span><span class="w"> </span>:<span class="w"> </span>xilinx_vck5000
 ------------------------------------
-Warning: Device is not ready - Limited functionality available with XRT tools.
+Warning:<span class="w"> </span>Device<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>ready<span class="w"> </span>-<span class="w"> </span>Limited<span class="w"> </span>functionality<span class="w"> </span>available<span class="w"> </span>with<span class="w"> </span>XRT<span class="w"> </span>tools.
 
-Flash properties
-  Type                 : ospi_versal
-  Serial Number        : N/A
+Flash<span class="w"> </span>properties
+<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>ospi_versal
+<span class="w">  </span>Serial<span class="w"> </span>Number<span class="w">        </span>:<span class="w"> </span>N/A
 
-Device properties
-  Type                 : vck5000
-  Name                 : N/A
-  Config Mode          : <span class="m">0</span>
-  Max Power            : N/A
+Device<span class="w"> </span>properties
+<span class="w">  </span>Type<span class="w">                 </span>:<span class="w"> </span>vck5000
+<span class="w">  </span>Name<span class="w">                 </span>:<span class="w"> </span>N/A
+<span class="w">  </span>Config<span class="w"> </span>Mode<span class="w">          </span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">  </span>Max<span class="w"> </span>Power<span class="w">            </span>:<span class="w"> </span>N/A
 
-Flashable partitions running on FPGA
-  Platform             : xilinx_vck5000
-  SC Version           : INACTIVE
-  Platform ID          : 0x0
+Flashable<span class="w"> </span>partitions<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>FPGA
+<span class="w">  </span>Platform<span class="w">             </span>:<span class="w"> </span>xilinx_vck5000
+<span class="w">  </span>SC<span class="w"> </span>Version<span class="w">           </span>:<span class="w"> </span>INACTIVE
+<span class="w">  </span>Platform<span class="w"> </span>ID<span class="w">          </span>:<span class="w"> </span>0x0
 </pre></div>
 </div>
 <p>In particular if the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> is <code class="docutils literal notranslate"><span class="pre">ospi_versal</span></code> then migration is required.   Following a successful migration with the steps below, the <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">properties:</span> <span class="pre">Type</span></code> value will be reported as <code class="docutils literal notranslate"><span class="pre">ospi_xgq</span></code>.</p>
@@ -173,7 +173,7 @@ Flashable partitions running on FPGA
 <p>The <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> platform is aligned with the Vivado and Vitis 2022.1 software.   Ensure that 2022.1 XRT package (XRT version 2.13.466) is installed on the host and used in this stage to satisfy compatibility requirements with the 2022.1 platform packages.</p>
 </div>
 <p>Run the following command to migrate the card from <code class="docutils literal notranslate"><span class="pre">vck5000_gen3x16_xdma_base_1</span></code> to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo /opt/xilinx/firmware/vck5000/gen4x8-xdma/base/migration/migrate.sh &lt;Management BDF&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>/opt/xilinx/firmware/vck5000/gen4x8-xdma/base/migration/migrate.sh<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
 </pre></div>
 </div>
 <p>When complete, cold reboot the host machine as requested.</p>
@@ -182,21 +182,21 @@ Flashable partitions running on FPGA
 <p>Ensure the host machine is <strong>cold</strong> rebooted to ensure the new platform configuration is loaded.</p>
 </div>
 <p>After cold reboot completes, the Satellite Controller on the card also needs to be updated. Issue the following commands</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base --device &lt;Management BDF&gt;
-$ timeout <span class="m">40</span> watch -n <span class="m">1</span> <span class="s1">&#39;xbmgmt examine --report vmr --device &lt;Management BDF&gt; --verbose | grep -i &quot;program progress&quot;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;
+$<span class="w"> </span>timeout<span class="w"> </span><span class="m">40</span><span class="w"> </span>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s1">&#39;xbmgmt examine --report vmr --device &lt;Management BDF&gt; --verbose | grep -i &quot;program progress&quot;&#39;</span>
 </pre></div>
 </div>
 <p>The last command outputs information similar to below</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Every <span class="m">1</span>.0s: xbmgmt examine --report vmr --device d8:00.0 --verbose <span class="p">|</span>...  Tue May  <span class="m">3</span> <span class="m">10</span>:30:36 <span class="m">2022</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Every<span class="w"> </span><span class="m">1</span>.0s:<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>--report<span class="w"> </span>vmr<span class="w"> </span>--device<span class="w"> </span>d8:00.0<span class="w"> </span>--verbose<span class="w"> </span><span class="p">|</span>...<span class="w">  </span>Tue<span class="w"> </span>May<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>:30:36<span class="w"> </span><span class="m">2022</span>
 
-  Program progress     : <span class="m">100</span>
+<span class="w">  </span>Program<span class="w"> </span>progress<span class="w">     </span>:<span class="w"> </span><span class="m">100</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">progress</span></code> will increment from 0 to 100 to indicate SC upgrade progress.</p>
 <p>When the command above completes issue a <strong>cold</strong> reboot of the host system to complete the upgrade.</p>
 <p>When the host machine completes the cold reboot, run the <code class="docutils literal notranslate"><span class="pre">xbmgmt</span> <span class="pre">examine</span></code> command to confirm that the Satellite Controller firmware version is now reported to be at version 4.4.33 before continuing to the next stage.</p>
 <p>To confirm that the VCK5000 card has been successfully migrated issue the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt examine -r vmr --verbose --device &lt;PCIe BDF of your VCK5000 card&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>examine<span class="w"> </span>-r<span class="w"> </span>vmr<span class="w"> </span>--verbose<span class="w"> </span>--device<span class="w"> </span>&lt;PCIe<span class="w"> </span>BDF<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>VCK5000<span class="w"> </span>card&gt;
 </pre></div>
 </div>
 <p>The presence of <code class="docutils literal notranslate"><span class="pre">Has</span> <span class="pre">fpt:</span> <span class="pre">1</span></code> in the output of this command indicates that the card’s OSPI configuration storage is successfully migrated.</p>
@@ -209,7 +209,7 @@ $ timeout <span class="m">40</span> watch -n <span class="m">1</span> <span clas
 </div>
 <p>To upgrade the card from <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_xdma_base_2</span></code> to <code class="docutils literal notranslate"><span class="pre">vck5000_gen4x8_qdma_base_2</span></code> complete the following steps.</p>
 <p>First, run the following command to program the platform shell on the card:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base shell --device &lt;Management BDF&gt;  --image &lt;path to qdma install image <span class="o">(</span>typically located <span class="k">in</span> /lib/firmware/xilinx/...<span class="o">)</span>&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>shell<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w">  </span>--image<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>qdma<span class="w"> </span>install<span class="w"> </span>image<span class="w"> </span><span class="o">(</span>typically<span class="w"> </span>located<span class="w"> </span><span class="k">in</span><span class="w"> </span>/lib/firmware/xilinx/...<span class="o">)</span>&gt;
 </pre></div>
 </div>
 <p>When complete, cold reboot the host machine as requested.</p>
@@ -219,11 +219,11 @@ $ timeout <span class="m">40</span> watch -n <span class="m">1</span> <span clas
 <p>For the XDMA to QDMA platform upgrade, the transfer of the new Satellite Controller firmware is completed with two commands instead of one.</p>
 </div>
 <p>First, run the following command to set the Satellite Controller hardware into a state where it is ready to receive a new firmware:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base sc --device &lt;Management BDF&gt;  --image &lt;path to qdma install image&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>sc<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w">  </span>--image<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>qdma<span class="w"> </span>install<span class="w"> </span>image&gt;
 </pre></div>
 </div>
 <p>Next, re-run the same command to transfer the new firmware image to the Satellite Controller’s program storage.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo xbmgmt program --base sc --device &lt;Management BDF&gt;  --image &lt;path to qdma install image&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>xbmgmt<span class="w"> </span>program<span class="w"> </span>--base<span class="w"> </span>sc<span class="w"> </span>--device<span class="w"> </span>&lt;Management<span class="w"> </span>BDF&gt;<span class="w">  </span>--image<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>qdma<span class="w"> </span>install<span class="w"> </span>image&gt;
 </pre></div>
 </div>
 <p>When complete, cold reboot the host machine.</p>
